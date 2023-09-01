@@ -1,0 +1,330 @@
+@use "../setting" as *;
+@use "../mixin" as m;
+
+.rsvp {
+    position: relative;
+    clip-path: inset(0);
+    width: 100vw;
+    padding: 60px 0 90px 0;
+    position: relative;
+    z-index: 50;
+    &::before {
+        content:"";
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        width: 100vw;
+        height: 120vh;
+        background: url("/assets/img/sea1.jpg") no-repeat;
+        -webkit-background-size: cover;
+        background-size: cover;
+    }
+    @include m.mediaQuery(tab) {
+        padding-top: 100px;
+    }
+    @include m.mediaQuery(pc) {
+        padding-top: 130px;
+    }
+    .rsvp-wrap {
+        background-color: $main-color;
+        margin: 0 4%;
+        padding: 50px 15px;
+        @include m.mediaQuery(tab) {
+            margin: 0 calc(map-get($sideBorSize, tab) + 2%);
+            padding: 60px 40px;
+        }
+        @include m.mediaQuery(pc) {
+            margin: 0 calc(map-get($sideBorSize, pc) + 40px);
+            margin: 0 auto;
+            max-width: 1000px;
+            padding: 90px 60px;
+        }
+        .headline {
+            font-size: 2rem;
+            text-align: center;
+            @include font-headline-sub;
+            color: $second-color;
+        }
+        .info {
+            margin-top: 50px;
+            font-size: .8rem;
+            text-align: left;
+            line-height: 1.3rem;
+            @include m.mediaQuery(tab) {
+                margin-top: 40px;
+            }
+            .info-message {
+                margin-top: 8px;
+            }
+            .deadline {
+                margin-top: 16px;
+                .date {
+                    font-size: 1.2rem;
+                    margin-right: 4px;
+                    color: $error;
+                }
+            }
+        }
+        .form {
+            margin-top: 35px;
+            width: 100%;
+            .form-wrap {
+                width: 100%;
+            }
+
+            .required-message {
+                font-size: .7rem;
+            }
+            .input-list {
+                list-style: none;
+                .input-item {
+                    margin-top: 20px;
+                    .attendance {
+                        margin-top: 10px;
+                        display: flex;
+                        justify-content: space-around;
+                        align-items: center;
+                        label {
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            align-items: center;
+                            width: 130px;
+                            height: 130px;
+                            text-align: center;
+                            position: relative;
+                            .img-attendance {
+                                position: absolute;
+                                width: 100%;
+                                height: 100%;
+                            }
+                            span {
+                                margin: 0;
+                                display: block;
+                                white-space: nowrap;
+                                line-height: 1.2rem;
+                                &.ja {
+                                    letter-spacing: .5rem;
+                                    &:after {
+                                        content: " ";
+                                        margin-left: -.5rem;
+                                      }
+                                }
+                                &.en {
+                                    font-size: .8rem;
+                                } 
+                            }
+                        }
+                        input[type="radio"] {
+                            display: none;
+                            &:checked + label {
+                                position: relative;
+                                background-image: url("../img/attendance.svg");
+                                background-repeat: no-repeat;
+                                background-size: cover;
+                                background-position: center;
+                                color: $second-color;
+                            }
+                        }
+                    }
+                    label {
+                        width: 100%;
+                        span {
+                            margin-left: 8px;
+                        }
+                    }
+                    .input-container {
+                        margin-top: 4px;
+                        width: 100%;
+                        display: flex;
+                        font-size: 1rem;
+                        input, select {
+                            flex: 1;
+                            min-width: 0;
+                            font-size: 1rem;
+                            padding: 8px 16px 8px 8px;
+                            background-color: #fff;
+                            border-radius: 3px;
+                            &:nth-child(2) {
+                                margin-left: 12px;
+                            }
+                        }
+                        .select-wrap {
+                            flex: 1;
+                            min-width: 0;
+                            position: relative;
+                            &::after {
+                                content: "";
+                                position: absolute;
+                                display: inline-block;
+                                top: 50%;
+                                right: 20px;
+                                width: 0;
+                                transform: translateY(-50%);
+                                border-left: 6.5px solid transparent;
+                                border-right: 6.5px solid transparent;
+                                border-top: 6px solid #757575;
+                            }
+                        }
+                        select {
+                            color: #000;
+                            width: 100%;
+                            &:invalid {
+                                color: #757575;
+                              }
+                        }
+                    }
+                    .error-text {
+                        font-size: .7rem;
+                        color: $error;
+                    }
+                    &.add-companion {
+                        display: flex;
+                        justify-content: space-between;
+                        .delete {
+                            font-size: .8rem;
+                            text-align: end;
+                            margin-right: 16px;
+                            cursor: pointer;
+                            display: inline-block;
+                            padding: 8px 8px;
+                            &:hover {
+                                color: $second-color;
+                            }
+                            svg {
+                                fill: #000;
+                            }
+                            .text {
+                                margin-left: 2px;
+                            }
+                        }
+                    }
+                }
+            }
+            .companion {
+                width: 100%;
+                margin-top: 35px;
+                font-size: .8rem;
+                display: flex;
+                justify-content: center;
+                .companion-btn {
+                    padding: 8px 16px;
+                    padding: 8px 16px 8px 32px;
+                    margin: 0 auto;
+                    display: inline-block;
+                    cursor: pointer;
+                    position: relative;
+                    &:hover {
+                        color: $second-color;
+                    }
+                    .text {
+                        margin-left: 1px;
+                        color: #000;
+                    }
+                    svg {
+                        position: absolute;
+                        top: 50%;
+                        left: 14px;
+                        margin-top: 1px;
+                        transform: translateY(-50%);
+                        font-size: 1rem;
+                        fill: $second-color;
+                    }
+                }
+            }
+            .fragment-delete {
+                font-size: .8rem;
+                padding: 8px;
+                padding-left: 14px;
+                position: relative;
+                svg {
+                    position: absolute;
+                    top: 50%;
+                    left: 0px;
+                    transform: translateY(-50%);
+                    fill: #000;
+                }
+                .text {
+                    color: #000;
+                    display: inline-block;
+                    margin-right: 2px;
+                }
+            }
+            .privacy-policy-checkbox {
+                text-align: center;
+                font-size: .75rem;
+                margin-top: 60px;
+                a {
+                    border-bottom: 1px solid #000;
+                }
+            }
+            .submit-btn-container {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                margin: 40px auto 0 auto;
+                text-align: center;
+                .submit {
+                    display: inline;
+                    padding: 12px 120px;
+                    border-radius: 30px;
+                    background-color: $second-color;
+                    color: #fff;
+                    opacity: 1;
+                    &:disabled {
+                        background-color: #757575;
+                    }
+                }
+                &.sending {
+                    border-radius: 50%;
+                    width: 50px;
+                    height: 50px;
+                    background-color: $second-color;
+                    position: relative;
+                    animation: circleAnime .8s infinite linear;
+                    @keyframes circleAnime {
+                        0% {
+                            transform: rotate(0deg);
+                        }
+                        100% {
+                            transform: rotate(365deg);
+                        }
+                    }
+                    &::after {
+                        content: "";
+                        position: absolute;
+                        display: block;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        z-index: 1;
+                        width: 80%;
+                        height: 80%;
+                        border: 4px solid $second-color;
+                        border-top: 4px solid #fff;
+                        border-left: 4px solid #fff;
+                        border-radius: 50%;
+                    }
+                    .submit {
+                        opacity: 0;
+                    }
+                }
+            }
+        }
+    }
+    .asterisk {
+        position: relative;
+        padding-left: .1rem;
+        margin-left: .5rem;
+        &::before {
+            content: "*";
+            margin-left: -.5rem;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: inline-block;
+            color: $error;
+        }
+    }
+}

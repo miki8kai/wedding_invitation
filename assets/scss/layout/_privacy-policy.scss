@@ -1,0 +1,86 @@
+@use "../setting" as *;
+@use "../mixin" as m;
+
+header {
+    width: 100vw;
+    max-width: 1200px;
+    margin: 0 auto;
+    .head {
+        display: flex;
+        align-items: center;
+        .headline {
+            width: auto;
+            letter-spacing: .5px;
+            margin:0;
+            margin-left: 15px;
+            padding:0;
+            display: inline-block;
+            text-align: center;
+            color: $main-font-color;
+            @include font-headline;
+            .organizer, .wedding, .invitation {
+                display: block;
+                @include font-headline;
+            }
+            .organizer {
+                font-size: calc(1.5rem / 2);
+                display: inline;
+                @include font-headline-sub;
+            }
+            .wedding {
+                font-size: calc(3.4rem / 2);
+            }
+            .invitation {
+                font-size: calc(1.9rem / 2);
+            }
+        }
+        svg {
+            fill: $second-color;
+            display: inline-block;
+            width: 70px;
+            height: 70px;
+        }
+    }
+}
+main {
+    width: 100vw;
+    color: $main-font-color;
+    padding-bottom: 60px;
+    margin: 0 auto;
+    margin-top: 40px;
+    @include m.mediaQuery(pc) {
+        max-width: 1200px;
+    }
+    .main-inner {
+        padding: 0 4%;
+        h1 {
+            background-color: $second-color;
+            color: #fff;
+            padding: 8px 8px 8px 16px;
+            margin: 0 -4%;
+        }
+        h2 {
+            margin-top: 35px;
+            padding: 8px;
+            border-left: 3px solid $second-color;
+        }
+        p {
+            margin-top: 25px;
+            padding: 2px;
+        }
+        ol {
+            margin-top: 25px;
+            list-style-position: inside;
+            li {
+                margin-top: 4px;
+            }
+            ol {
+                margin-top: 4px;
+                margin-left: 16px;
+            }
+        }
+    }
+}
+footer {
+
+}

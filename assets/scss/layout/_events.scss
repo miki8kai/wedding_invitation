@@ -1,0 +1,102 @@
+@use "../setting" as *;
+@use "../mixin" as m;
+
+.events {
+    width: 100vw;
+    padding-top: 60px;
+    padding-bottom: auto;
+    position: relative;
+    padding-bottom: 76px;
+    @include m.mediaQuery(tab) {
+        padding-top: 70px;
+        padding-bottom: 110px;
+    }
+    @include m.mediaQuery(pc) {
+        padding-top: 90px;
+        padding-bottom: 90px;
+    }
+    .events-wrap {
+        position: relative;
+        z-index: 5;
+        background-color: #fff;
+        margin-left: auto;
+        margin-right: 0;
+        width: calc(100% - calc(map-get($sideBorSize, sp) + 10px));
+        @include m.mediaQuery(tab) {
+            width: calc(100vw - calc(map-get($sideBorSize, tab) + 10px));
+            padding: 20px 10px;
+        }
+        @include m.mediaQuery(pc) {
+            width: calc(100vw - calc(map-get($sideBorSize, pc) + 10px));
+            max-width: 1200px;
+            padding: 40px 25px;
+        }
+        .card {
+            padding: 35px 25px 35px 35px;
+            &.card-wedding-ceremony {
+
+            }
+            &.card-wedding-reception {
+            }
+            .card-inner {
+                .title {
+                    width: 100%;
+                    padding: 8px 16px 4px 0;
+                    border-bottom: 2px solid $second-color;
+                    .en , .jp {
+                        display: block;
+                    }
+                    .en {
+                        @include font-headline;
+                        color: $second-color;
+                        font-size: 1.8rem;
+                        padding-bottom: 8px;
+                    }
+                    .jp {
+                        font-size: .85rem;
+                        @include m.mediaQuery(tab) {
+                            font-size: 1rem;
+                        }
+                    }
+                }
+                .info {
+                    .info-list {
+                        list-style: none;
+                        .date, .time {
+                            font-size: 1.4rem;
+                            letter-spacing: 2px;
+                        }
+                        .date {
+                            padding-top: 30px;
+                        }
+                        .time {
+                            @include m.mediaQuery(tab) {
+                                padding-top: 8px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .events-img-wrap {
+        position: absolute;
+        z-index: 1;
+        top: calc(60px * 2);
+        left: 0;
+        width: calc(100vw - calc(map-get($sideBorSize, sp)));
+        height: 494px;
+        background-color: $second-color;
+        @include m.mediaQuery(tab) {
+            top: calc(70px * 2);
+            width: calc(100vw - calc(map-get($sideBorSize, tab)));
+            height: 588px;
+        }
+        @include m.mediaQuery(pc) {
+            top: calc(90px * 2);
+            width: calc(100vw - calc(map-get($sideBorSize, pc)));
+            height: 582px;
+            max-width: 1200px;
+        }
+    }
+}

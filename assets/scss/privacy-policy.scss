@@ -1,0 +1,5 @@
+@forward "setting"; // 変数、カラーなど
+@forward "mixin";
+@use "foundation"; // 基本の設定
+@use "layout/privacy-policy";
+@use "layout/footer";

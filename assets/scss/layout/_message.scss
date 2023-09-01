@@ -1,0 +1,106 @@
+@use "../setting" as *;
+@use "../mixin" as m;
+
+.message {
+    padding-left: calc(map-get($sideBorSize, sp) + 16px);
+    padding-top: 60px;
+    padding-bottom: 90px;
+    @include m.mediaQuery(tab) {
+        padding-left: calc(map-get($sideBorSize, tab) + 16px);
+    }
+    @include m.mediaQuery(pc) {
+        padding-left: calc(map-get($sideBorSize, pc) + 16px);
+    }
+    .first-img-wrap {
+        width: 100%;
+        margin-left: auto;
+        margin-right: 0;
+        @include m.mediaQuery(tab) {
+            width: 80%;
+        }
+        @include m.mediaQuery(pc) {
+            max-width: 1200px;
+        }
+        img {
+            user-select: none;
+            width: 100%;
+        }
+    }
+    .test-wrap {
+        padding-top: 40px;
+        color: #333;
+        @include m.mediaQuery(tab) {
+            position: relative;
+        }
+        .text-inner {
+            font-size: .8rem;
+            @include m.mediaQuery(tab) {
+                font-size: .8rem;
+                width: 65%;
+                margin-left: auto;
+            }
+            .text {
+                &--small {
+                    margin-top: 1rem;
+                }
+                &--regular {
+                    margin-top: 2rem;
+                }
+                &--large {
+                    margin-top: 3rem;
+                }
+                &--biglarge {
+                    margin-top: 6rem;
+                }
+            }
+            .inter-img-wrap {
+                display: none;
+                margin-top: 50px;
+                width: 100%;
+                margin-left: - calc(map-get($sideBorSize, sp) + 16px);
+                margin-right: auto;
+                @include m.mediaQuery(tab) {
+                    display: inline-block;
+                    margin-left: - calc(map-get($sideBorSize, tab) + 16px);
+                    width: 80%;
+                    position: absolute;
+                    top: 35%;
+                    left: 0;
+                    max-width: 300px;
+                }
+                @include m.mediaQuery(pc) {
+                    margin-left: - calc(map-get($sideBorSize, pc) + 16px);   
+                }
+                img {
+                    user-select: none;
+                    width: 100%;
+                }
+            }
+            .sign {
+                margin: 50px 40px 50px 0;
+                display: flex;
+                font-size: 1.2rem;
+                .last-name {
+                }
+                .first-name {
+                    margin-left: 1rem;
+                }
+            }
+        }
+    }
+    .last-img-wrap {
+        width: 100%;
+        margin-left: auto;
+        margin-right: 0;
+        @include m.mediaQuery(tab) {
+            width: 80%;
+        }
+        @include m.mediaQuery(pc) {
+            max-width: 1200px;
+        }
+        img {
+            user-select: none;
+            width: 100%; 
+        }
+    }
+}

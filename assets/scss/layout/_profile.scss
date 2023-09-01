@@ -1,0 +1,79 @@
+@use "../setting" as *;
+@use "../mixin" as m;
+
+.profile {
+    width: 100vw;
+    .profile-wrap {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        &.broom {
+            background-image: url("../img/hero.jpg");
+            background-attachment: local;
+            background-size: cover;
+            background-position: cover;
+        }
+        &.bride {
+            background-image: url("../img/hero2.jpg");
+            background-attachment: local;
+            background-size: cover;
+            background-position: cover;
+        }
+        .card {
+            position: sticky;
+            top: calc(100% - 210px);
+            left: calc(100% - calc(100% - map-get($sideBorSize, sp) - 10px));
+            width: calc(100% - map-get($sideBorSize, sp) - 10px);
+            height: 240px;
+            margin-left: auto;
+            padding: 35px 35px 35px 35px;
+            background-color: #fff;
+            z-index: 2;
+            @include m.mediaQuery(tab) {
+                left: calc(100% - calc(100% - map-get($sideBorSize, tab) - 10px));
+                width: calc(100% - map-get($sideBorSize, tab) - 10px);
+                max-width: 400px;
+            }
+            @include m.mediaQuery(pc) {
+                left: calc(100% - calc(100% - map-get($sideBorSize, pc) - 10px));
+                width: calc(100% - map-get($sideBorSize, pc) - 10px);
+                max-width: 440px;
+            }
+            .headline {
+                display: flex;
+                flex-direction: column;
+                margin-bottom: .8rem;
+                line-height: 1.6rem;
+                @include font-headlineExtraBold;
+                border-bottom: 1px solid $second-color;
+                .en {
+                    font-size: 2rem;
+                    color: $second-color;
+                }
+                .jp {
+                    font-size: .8rem;
+                    color: $font-color;
+                }
+            }
+            .text-block {
+                line-height: 1.3rem;
+                .name {
+                    display: block;
+                    .kanji {
+                        font-size: 1.2rem;
+                        font-weight: 500;
+                    }
+                    .kana {
+                        font-size: .8rem;
+                    }
+                }
+                .text {
+                    display: inline-block;
+                    margin-top: 16px;
+                    font-size: .85rem;
+                }
+            }
+        }
+    }
+}
+

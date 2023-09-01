@@ -1,0 +1,9 @@
+@forward "setting"; // 変数、カラーなど
+@forward "mixin";
+// @use "vendor"; 
+@use "foundation"; // 基本の設定
+@use "layout"; // ページ
+// @use "component"; // 最小単位のパーツ
+// @use "javascript";
+// @use "project";
+// @use "utility";

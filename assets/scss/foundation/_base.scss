@@ -1,0 +1,16 @@
+@use "../setting/" as *;
+
+html, body {
+    @include font-normal;
+    // scroll-behavior: smooth;
+}
+body {
+    background-color: $main-color;
+    overflow-x: hidden;
+    position: relative;
+}
+a {
+    text-decoration: none;
+    color: #000;
+}
+

@@ -1,0 +1,84 @@
+@use "../setting/" as *;
+@use "../mixin" as m;
+
+.countdown {
+    padding: 60px 0 90px 0;
+    clip-path: inset(0);
+    text-align: center;
+    &::before {
+        content:"";
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        width: 100vw;
+        height: 100vh;
+        background: url("/assets/img/sea2.jpg") no-repeat;
+        -webkit-background-size: cover;
+        background-size: cover;
+    }
+    @include m.mediaQuery(tab) {
+        padding: 80px 0 110px 0;
+        padding: 90px 0 120px 0;
+    }
+    .headline, .headline-time {
+        color: #eee;
+        display: block;
+        text-align: center;
+    }
+    .headline {
+        @include font-headline-sub;
+        font-size: 2.5rem;
+        line-height: 2.4rem;
+        @include m.mediaQuery(tab) {
+            font-size: 2.8rem;
+            line-height: 2.8rem;
+        }
+    }
+    .headline-time {
+        @include font-headlineRegular;
+        font-size: 1.8rem;
+        @include m.mediaQuery(tab) {
+            font-size: 2rem;
+        }
+        .to-text {
+            @include font-headline-sub;
+            @include m.mediaQuery(tab) {
+                font-size: 2rem;
+            }
+        }
+    }
+    .limit-wrapper {
+        margin-top: 120px;
+        display: block;
+        .limit-list {
+            max-width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            list-style: none;
+            li {
+                max-width: 100%;
+                padding: 0;
+                display: inline-block;
+                color: #eee;
+                .number {
+                    width: 100%;
+                    display: inline-block;
+                    font-size: 2.5rem;
+                    @include font-headlineExtraBold;
+                    @include m.mediaQuery(tab) {
+                        font-size: 3.2rem;
+                    }
+                }
+                .unit {
+                    font-size: 1.8rem;
+                    @include font-headline-sub;
+                    @include m.mediaQuery(tab) {
+                        font-size: 2.0rem;
+                    }
+                }
+            }
+        }
+    }
+}

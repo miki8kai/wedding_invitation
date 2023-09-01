@@ -1,0 +1,43 @@
+// Kiwi Maru
+@import url('https://fonts.googleapis.com/css2?family=Kiwi+Maru&display=swap');
+// Tangerine
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Tangerine:wght@700&display=swap');
+// Nanum Myeongjo
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&display=swap');
+// Noto Sans JP 使用してない
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap');
+// Hannari
+@import url('https://fonts.googleapis.com/earlyaccess/hannari.css');
+// Abhaya Libre
+@import url('https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;700;800&display=swap');
+// Zen Kaku Gothic New
+@import url('https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New&display=swap');
+
+@mixin font-normal {
+    font-family: 'Zen Kaku Gothic New', 'Kiwi Maru', serif;
+    font-weight: 400;
+}
+
+@mixin font-headline {
+    font-family: 'Nanum Myeongjo', 'Tangerine', serif;
+    font-weight: 700;
+}
+@mixin font-headline-sub {
+    font-family: 'Tangerine', cursive;
+    font-weight: 400;
+}
+
+@mixin font-headlineExtraBold {
+    font-family: 'Abhaya Libre', 'Nanum Myeongjo', 'Tangerine', serif;
+    font-weight: 800;
+}
+
+@mixin font-headlineRegular {
+    font-family: 'Abhaya Libre', 'Nanum Myeongjo', 'Tangerine', serif;
+    font-weight: 400;
+}
+
+@mixin font-sign {
+    font-family: 'Hannari';
+    font-weight: 400;
+}

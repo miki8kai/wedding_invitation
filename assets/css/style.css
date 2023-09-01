@@ -243,42 +243,13 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
-  opacity: 1;
 }
 .load.end {
-  opacity: 0;
-  transition: all 0.5s;
+  display: none;
 }
 .load .video {
   width: 300px;
   height: 300px;
-}
-.load svg {
-  width: 270px;
-  height: 270px;
-  fill: none;
-}
-.load svg path {
-  fill: #000;
-  fill-opacity: 0;
-  stroke: #000;
-  stroke-width: 1px;
-  stroke-dasharray: 3000;
-  stroke-dashoffset: 3000;
-  animation: 3s ease-in forwards 0.5s textAnimation;
-}
-@keyframes textAnimation {
-  0% {
-    stroke-dashoffset: 3000;
-  }
-  80% {
-    fill-opacity: 0;
-    stroke-dashoffset: 0;
-  }
-  100% {
-    fill-opacity: 1;
-    stroke-dashoffset: 0;
-  }
 }
 
 header {
@@ -1443,7 +1414,7 @@ header .drawer.display .img-wrapper img {
   z-index: -1;
   width: 100vw;
   height: 120vh;
-  background: url("../assets/img/sea1.jpg") no-repeat;
+  background: url("../img/sea1.jpg") no-repeat;
   background-size: cover;
 }
 @media screen and (min-width: 768px) {

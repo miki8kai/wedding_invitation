@@ -1,31 +1,19 @@
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { addDelayIncrementAnimation, getCharElemList } from "./delayIncrementAnimation";
 
-export const eventsCardTitle = (title: HTMLSpanElement) => {
+export const eventsCardTitleEnglish = (title: HTMLSpanElement) => {
     if (!title) return;
     if (!title.textContent) return;
     
-    const charList = title.textContent.split('')
-    const charElemList = charList.map(char => {
-        const span = document.createElement('span');
-        span.textContent = char
-        return span
-    });
+    const charElemList = getCharElemList(title.textContent)
     title.textContent = '';
+    addDelayIncrementAnimation(charElemList, title);
+}
 
-    gsap.registerPlugin(ScrollTrigger);
-    charElemList.forEach((elem, idx)=> {
-        const delayIncrement = idx;
-        title.appendChild(elem);
-        gsap.from(elem, {
-            opacity: 0,
-            duration: 0.5,
-            delay: delayIncrement * 0.05,
-            scrollTrigger: {
-                // markers: true,
-                trigger: elem,
-                start: 'top 80%',
-            }
-        });
-    });
+export const eventsCardTitleJapanese = (title: HTMLSpanElement) => {
+    if (!title) return;
+    if (!title.textContent) return;
+    
+    const charElemList = getCharElemList(title.textContent)
+    title.textContent = '';
+    addDelayIncrementAnimation(charElemList, title);
 }

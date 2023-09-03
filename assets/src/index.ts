@@ -2,7 +2,7 @@ import '@fortawesome/fontawesome-free/js/fontawesome';
 import '@fortawesome/fontawesome-free/js/solid';
 import '@fortawesome/fontawesome-free/js/regular';
 import { countdownTimer, setWeddingDay } from "./countdownTimer";
-import { eventsCardTitle } from "./eventsCard";
+import { eventsCardTitleEnglish, eventsCardTitleJapanese } from "./eventsCard";
 import { headerPointBtn } from "./headerPointBtn";
 import { messageBottomImage, messageInnerImage, messageTopImage } from "./messageImage";
 import { profileCardBride, profileCardBroom } from "./profileCard";
@@ -13,6 +13,10 @@ import { inputFormService } from "./form/InputFormService";
 import { loadVideo } from "./loadVideo";
 import { resultCloseButton } from "./resultCloseButton";
 import { lenis } from './lenis';
+import { placeName } from './placeName';
+import { placeAddress } from './placeAddress';
+import { broomEnglish, broomJapanese } from './broom';
+import { brideEnglish, brideJapanese } from './bride';
 
 export const POINT_BUTTON_TOKEN = 'open';
 export const DRAWER_TOKEN = 'display';
@@ -41,12 +45,21 @@ const main = () => {
     profileCardBroom(<HTMLDivElement>document.getElementById('js-profile-broom-card'));
     profileCardBride(<HTMLDivElement>document.getElementById('js-profile-bride-card'));
 
-    eventsCardTitle(<HTMLSpanElement>document.getElementById('js-event-ceremony-card-title'));
-    eventsCardTitle(<HTMLSpanElement>document.getElementById('js-event-reception-card-title'));
+    broomEnglish(<HTMLSpanElement>document.getElementById('js-profile-broom-en'));
+    broomJapanese(<HTMLSpanElement>document.getElementById('js-profile-broom-jp'));
+    brideEnglish(<HTMLSpanElement>document.getElementById('js-profile-bride-en'));
+    brideJapanese(<HTMLSpanElement>document.getElementById('js-profile-bride-jp'));
+
+    eventsCardTitleEnglish(<HTMLSpanElement>document.getElementById('js-event-ceremony-card-title-en'));
+    eventsCardTitleJapanese(<HTMLSpanElement>document.getElementById('js-event-ceremony-card-title-jp'));
+    eventsCardTitleEnglish(<HTMLSpanElement>document.getElementById('js-event-reception-card-title-en'));
+    eventsCardTitleJapanese(<HTMLSpanElement>document.getElementById('js-event-reception-card-title-jp'));
 
     setWeddingDay(<HTMLSpanElement>document.getElementById('js-wedding-day'));
     countdownTimer(<HTMLUListElement>document.getElementById('js-time-list'));
 
+    placeName(<HTMLHeadElement>document.getElementById('js-access-place-name'));
+    placeAddress(<HTMLPreElement>document.getElementById('js-access-place-address'))
 
     inputFormService();
 

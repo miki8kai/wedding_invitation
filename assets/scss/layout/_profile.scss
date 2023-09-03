@@ -21,7 +21,7 @@
         }
         .card {
             position: sticky;
-            top: calc(100% - 210px);
+            top: calc(100% - 240px);
             left: calc(100% - calc(100% - map-get($sideBorSize, sp) - 10px));
             width: calc(100% - map-get($sideBorSize, sp) - 10px);
             height: 240px;

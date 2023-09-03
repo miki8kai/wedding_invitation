@@ -19,8 +19,9 @@ export const DRAWER_TOKEN = 'display';
 export const RESULT_DISPLAY = 'display';
 
 export const SERVER_URL = 'aHR0cHMlM0ElMkYlMkZieml3bjB6Y3JqLmV4ZWN1dGUtYXBpLmFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZkZWZhdWx0JTJGd2VkZGluZ0ludml0YXRpb25CYWNrZW5k';
+// export const SERVER_URL = 'aHR0cCUzQSUyRiUyRjEyNy4wLjAuMSUzQTMwMDAlMkY=';
+
 const main = () => {
-    decodeURIComponent(atob(SERVER_URL))
     lenis();
 
     loadVideo(

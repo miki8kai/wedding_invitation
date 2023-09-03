@@ -120,6 +120,7 @@ const addErrorResult = (text: HTMLPreElement) => {
 }
 
 const send = async (input: InputData, btnContainer: HTMLDivElement) => {
+    if (!SERVER_URL) throw Error("SERVER_URLが設定されていません");
     const url = decodeURIComponent(atob(SERVER_URL));
     const res = await fetch(url, {
         method: 'POST',
@@ -142,8 +143,6 @@ const send = async (input: InputData, btnContainer: HTMLDivElement) => {
     if (!btnContainer) return;
     btnContainer.classList.remove(SUBMIT_SENDING);
 }
-
-
 
 export const submitButton = (submitBtn: HTMLInputElement, btnContainer: HTMLDivElement) => {
     if (!submitBtn) return;
@@ -176,7 +175,6 @@ export const submitButton = (submitBtn: HTMLInputElement, btnContainer: HTMLDivE
             jointParticipantList = null;
         }
         
-
         // バリデーション
         const inputList = [
             attendance,

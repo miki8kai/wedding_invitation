@@ -5,7 +5,7 @@ import { numberRule } from "../ruls/numberRule";
 import { requiredInputRule } from "../ruls/requiredInputRule";
 
 export class Age implements InputItem {
-    ERROR_MESSAGE = '年齢を入力してください';
+    ERROR_MESSAGE = '年齢を半角数字で入力してください';
     liItem: HTMLLIElement;
     elem: HTMLInputElement;
     value: number = -1;

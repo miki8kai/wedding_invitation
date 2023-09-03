@@ -1,12 +1,13 @@
 import { InputItem, InputItemQuery } from "../InputItem";
 import { errorMessage, removeErrorMessage } from "../errorMessage";
+import { pairIsOkRule } from "../ruls/pairIsOkRule";
 import { requiredInputRule } from "../ruls/requiredInputRule";
 
 export class FirstNameKanji implements InputItem {
     ERROR_MESSAGE: string = '性と名を入力してください';
     liItem: HTMLLIElement;
     elem: HTMLInputElement;
-    value: string = '';
+    readonly value: string = '';
 
     constructor(query: InputItemQuery) {
         if (!query) throw new Error('引数が不正です');
@@ -23,12 +24,12 @@ export class FirstNameKanji implements InputItem {
     }
     
     completeWith(): boolean {
-        if (!requiredInputRule(this.elem)) {
+        if (!requiredInputRule(this.elem) || !pairIsOkRule(this.liItem)) {
             errorMessage(this.liItem, this.ERROR_MESSAGE);
             return false;
         }
         removeErrorMessage(this.liItem);
-
+        
         return true;
     }
 }

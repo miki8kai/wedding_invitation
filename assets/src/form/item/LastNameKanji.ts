@@ -1,5 +1,6 @@
 import { InputItem, InputItemQuery } from "../InputItem";
 import { errorMessage, removeErrorMessage } from "../errorMessage";
+import { addError, addOk } from "../ruls/pairIsOkRule";
 import { requiredInputRule } from "../ruls/requiredInputRule";
 
 export class LastNameKanji implements InputItem {
@@ -24,9 +25,11 @@ export class LastNameKanji implements InputItem {
     public completeWith(): boolean {
         if (!requiredInputRule(this.elem)) {
             errorMessage(this.liItem, this.ERROR_MESSAGE);
+            addError(this.liItem);
             return false;
         }
         removeErrorMessage(this.liItem);
+        addOk(this.liItem);
 
         return true;
     }

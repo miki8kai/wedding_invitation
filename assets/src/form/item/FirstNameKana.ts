@@ -1,6 +1,7 @@
 import { InputItem, InputItemQuery } from "../InputItem";
 import { errorMessage, removeErrorMessage } from "../errorMessage";
 import { kanaInputRule } from "../ruls/kanaInputRule";
+import { pairIsOkRule } from "../ruls/pairIsOkRule";
 import { requiredInputRule } from "../ruls/requiredInputRule";
 
 export class FirstNameKana implements InputItem {
@@ -24,11 +25,13 @@ export class FirstNameKana implements InputItem {
     }
 
     completeWith(): boolean {
-        if (!requiredInputRule(this.elem) || !kanaInputRule(this.elem)) {
+        if (!requiredInputRule(this.elem) || !kanaInputRule(this.elem) || !pairIsOkRule(this.liItem)) {
             errorMessage(this.liItem, this.ERROR_MESSAGE);
+            
             return false;
         }
         removeErrorMessage(this.liItem);
+        
 
         return true;
     }

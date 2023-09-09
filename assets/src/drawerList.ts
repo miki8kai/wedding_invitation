@@ -1,4 +1,4 @@
-import { DRAWER_TOKEN, POINT_BUTTON_TOKEN } from ".";
+import { DRAWER_TOKEN, POINT_BUTTON_TOKEN } from '.';
 
 export const drawerList = (drawerList: HTMLUListElement) => {
     if (!drawerList) return;
@@ -6,7 +6,7 @@ export const drawerList = (drawerList: HTMLUListElement) => {
     if (!drawerItemList) return;
     if (drawerItemList.length <= 0) return;
 
-    drawerItemList.forEach(item => {
+    drawerItemList.forEach((item) => {
         item.addEventListener('click', () => {
             const drawer = <HTMLDivElement>document.getElementById('js-drawer');
             if (!drawer) return;
@@ -16,4 +16,4 @@ export const drawerList = (drawerList: HTMLUListElement) => {
             pointList.classList.remove(POINT_BUTTON_TOKEN);
         });
     });
-}
+};

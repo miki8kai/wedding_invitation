@@ -1,4 +1,3 @@
-
 import { companion } from './companion';
 import { errorMessage } from './errorMessage';
 import { locality } from './locality';
@@ -23,32 +22,31 @@ const postCodeHandler = async () => {
         console.error(`error message: ${receiveZip.message}`);
         errorMessage(<HTMLLIElement>document.getElementById('js-postcode-item'), '郵便番号が正しくありません');
     }
-    
+
     const address: ZipCodeAddress = getAddress(receiveZip);
     const zipInfo = convertZipCodeAddress2ZipInfo(address);
 
     selectRegion(<HTMLSelectElement>document.getElementById('region'), zipInfo.region);
     locality(<HTMLInputElement>document.getElementById('locality'), zipInfo.locality);
     street(<HTMLInputElement>document.getElementById('street'), zipInfo.street);
-} 
+};
 
 const init = () => {
     createRegion(<HTMLSelectElement>document.getElementById('region'));
 
     companion(
-        <HTMLButtonElement>document.getElementById('js-companion'), 
+        <HTMLButtonElement>document.getElementById('js-companion'),
         <HTMLDivElement>document.getElementById('js-fragment-wrap')
     );
-    privacyPolicy(
-        <HTMLInputElement>document.querySelector('input[name=privacy-policy]'));
+    privacyPolicy(<HTMLInputElement>document.querySelector('input[name=privacy-policy]'));
     submitButton(
         <HTMLInputElement>document.getElementById('js-submit'),
         <HTMLDivElement>document.getElementById('js-submit-container')
     );
-}
+};
 
-export const inputFormService = ()  => {
+export const inputFormService = () => {
     init();
     if (!postCode) return;
     postCode.addEventListener('input', postCodeHandler, false);
-}
+};

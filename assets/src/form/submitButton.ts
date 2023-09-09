@@ -1,60 +1,60 @@
-import { FirstNameKana } from "./item/FirstNameKana";
-import { LastNameKana } from "./item/LastNameKana";
-import { FirstNameKanji } from "./item/FirstNameKanji";
+import { FirstNameKana } from './item/FirstNameKana';
+import { LastNameKana } from './item/LastNameKana';
+import { FirstNameKanji } from './item/FirstNameKanji';
 import { LastNameKanji } from './item/LastNameKanji';
-import { Age } from "./item/Age";
-import { Relationship } from "./item/Relationship";
-import { PhoneNumber } from "./item/PhoneNumber";
-import { Email } from "./item/Email";
-import { PostCode } from "./item/PostCode";
-import { Region } from "./item/Region";
-import { Locality } from "./item/Locality";
-import { Street } from "./item/Street";
-import { Allergy } from "./item/Allergy";
-import { Pregnancy } from "./item/Pregnancy";
-import { Attendance } from "./item/Attendance";
-import { RESULT_DISPLAY, SERVER_URL } from "..";
-import * as bodyScrollLock from "body-scroll-lock";
-import { InputItem } from "./InputItem";
+import { Age } from './item/Age';
+import { Relationship } from './item/Relationship';
+import { PhoneNumber } from './item/PhoneNumber';
+import { Email } from './item/Email';
+import { PostCode } from './item/PostCode';
+import { Region } from './item/Region';
+import { Locality } from './item/Locality';
+import { Street } from './item/Street';
+import { Allergy } from './item/Allergy';
+import { Pregnancy } from './item/Pregnancy';
+import { Attendance } from './item/Attendance';
+import { RESULT_DISPLAY, SERVER_URL } from '..';
+import * as bodyScrollLock from 'body-scroll-lock';
+import { InputItem } from './InputItem';
 
 const SUBMIT_SENDING = 'sending';
 
 interface JointParticipant {
-    lastNameKanji: string,
-    firstNameKanji: string,
-    lastNameKana: string,
-    firstNameKana: string,
-    allergy: string,
-    age: number,
+    lastNameKanji: string;
+    firstNameKanji: string;
+    lastNameKana: string;
+    firstNameKana: string;
+    allergy: string;
+    age: number;
 }
 
 interface InputData {
-    attendance: boolean,
+    attendance: boolean;
     lastNameKanji: string;
-    firstNameKanji: string,
-    lastNameKana: string,
-    firstNameKana: string,
-    age: number,
-    relationship: string,
-    phoneNumber: string,
-    email: string,
-    postCode: string,
-    region: string,
-    locality: string,
-    street: string,
-    allergy: string,
-    pregnancy: boolean,
-    jointParticipant:  JointParticipant[] | null
+    firstNameKanji: string;
+    lastNameKana: string;
+    firstNameKana: string;
+    age: number;
+    relationship: string;
+    phoneNumber: string;
+    email: string;
+    postCode: string;
+    region: string;
+    locality: string;
+    street: string;
+    allergy: string;
+    pregnancy: boolean;
+    jointParticipant: JointParticipant[] | null;
 }
 
 const isInputAllOk = (inputList: InputItem[]) => {
     let isAllOk = true;
-    inputList.forEach(item => {
+    inputList.forEach((item) => {
         if (!item.completeWith()) isAllOk = false;
     });
 
     return isAllOk;
-}
+};
 
 const getJointParticipant = (): JointParticipant[] | null => {
     const fragmentWrap = <HTMLDivElement>document.getElementById('js-fragment-wrap');
@@ -63,53 +63,69 @@ const getJointParticipant = (): JointParticipant[] | null => {
 
     let isValidateOk = false;
 
-    const jointParticipantList: JointParticipant[] | null = 
-        Array.from(fragmentList)
-            .map((fragment, idx) => {
-                const fragmentCount = idx + 1;
-                
-                const lastNameKanjiFragment = new LastNameKanji({ item: `#js-fragment-${fragmentCount}-name-kanji-item`, name: 'lastNameKanji' });
-                const firstNameKanjiFragment = new FirstNameKanji({ item: `#js-fragment-${fragmentCount}-name-kanji-item`, name: 'firstNameKanji' });
-                
-                const lastNameKanaFragment = new LastNameKana({ item: `#js-fragment-${fragmentCount}-name-kana-item`, name: 'lastNameKana' });
-                const firstNameKanaFragment = new FirstNameKana({ item: `#js-fragment-${fragmentCount}-name-kana-item`, name: 'firstNameKana' });
-                
-                const ageFragment = new Age({ item: `#js-fragment-${fragmentCount}-age-item`, name: 'age' });
-                const allergyFragment = new Allergy({ item: `#js-fragment-${fragmentCount}-allergy-item`, name: 'allergy' });
+    const jointParticipantList: JointParticipant[] | null = Array.from(fragmentList).map((fragment, idx) => {
+        const fragmentCount = idx + 1;
 
-                // バリデーション
-                const fragmentList = [
-                    lastNameKanjiFragment,
-                    firstNameKanjiFragment,
-                    lastNameKanaFragment,
-                    firstNameKanaFragment,
-                    ageFragment,
-                    allergyFragment,
-                ]
-                if (isInputAllOk(fragmentList)) isValidateOk = true;
+        const lastNameKanjiFragment = new LastNameKanji({
+            item: `#js-fragment-${fragmentCount}-name-kanji-item`,
+            name: 'lastNameKanji'
+        });
+        const firstNameKanjiFragment = new FirstNameKanji({
+            item: `#js-fragment-${fragmentCount}-name-kanji-item`,
+            name: 'firstNameKanji'
+        });
 
-                const jointParticipantValues: JointParticipant = {
-                    lastNameKanji: lastNameKanjiFragment.value,
-                    firstNameKanji: firstNameKanjiFragment.value,
-                    lastNameKana: lastNameKanaFragment.value,
-                    firstNameKana: firstNameKanaFragment.value,
-                    age: ageFragment.value,
-                    allergy: allergyFragment.value,
-                }
+        const lastNameKanaFragment = new LastNameKana({
+            item: `#js-fragment-${fragmentCount}-name-kana-item`,
+            name: 'lastNameKana'
+        });
+        const firstNameKanaFragment = new FirstNameKana({
+            item: `#js-fragment-${fragmentCount}-name-kana-item`,
+            name: 'firstNameKana'
+        });
 
-                return jointParticipantValues;
+        const ageFragment = new Age({
+            item: `#js-fragment-${fragmentCount}-age-item`,
+            name: 'age'
+        });
+        const allergyFragment = new Allergy({
+            item: `#js-fragment-${fragmentCount}-allergy-item`,
+            name: 'allergy'
+        });
+
+        // バリデーション
+        const fragmentList = [
+            lastNameKanjiFragment,
+            firstNameKanjiFragment,
+            lastNameKanaFragment,
+            firstNameKanaFragment,
+            ageFragment,
+            allergyFragment
+        ];
+        if (isInputAllOk(fragmentList)) isValidateOk = true;
+
+        const jointParticipantValues: JointParticipant = {
+            lastNameKanji: lastNameKanjiFragment.value,
+            firstNameKanji: firstNameKanjiFragment.value,
+            lastNameKana: lastNameKanaFragment.value,
+            firstNameKana: firstNameKanaFragment.value,
+            age: ageFragment.value,
+            allergy: allergyFragment.value
+        };
+
+        return jointParticipantValues;
     });
     if (!isValidateOk) jointParticipantList[0].lastNameKanji = 'EMPTY';
 
     return jointParticipantList;
-}
+};
 
 const displayResult = (result: HTMLDialogElement) => {
     if (!result) return;
     result.classList.add(RESULT_DISPLAY);
     const disableBodyScroll = bodyScrollLock.disableBodyScroll;
     disableBodyScroll(result);
-}
+};
 
 const addErrorResult = (text: HTMLPreElement) => {
     if (!text) return;
@@ -117,18 +133,18 @@ const addErrorResult = (text: HTMLPreElement) => {
     error.textContent = '何らかの問題が発生しました。';
     error.classList.add('error');
     text.prepend(error);
-}
+};
 
 const send = async (input: InputData, btnContainer: HTMLDivElement) => {
-    if (!SERVER_URL) throw Error("SERVER_URLが設定されていません");
+    if (!SERVER_URL) throw Error('SERVER_URLが設定されていません');
     const url = decodeURIComponent(atob(SERVER_URL));
     const res = await fetch(url, {
         method: 'POST',
-        mode: "cors",
+        mode: 'cors',
         headers: {
-            'Content-Type': 'application/json',
+            'Content-Type': 'application/json'
         },
-        body: JSON.stringify(input),
+        body: JSON.stringify(input)
     });
 
     const body = await res.json();
@@ -142,7 +158,7 @@ const send = async (input: InputData, btnContainer: HTMLDivElement) => {
 
     if (!btnContainer) return;
     btnContainer.classList.remove(SUBMIT_SENDING);
-}
+};
 
 export const submitButton = (submitBtn: HTMLInputElement, btnContainer: HTMLDivElement) => {
     if (!submitBtn) return;
@@ -151,22 +167,55 @@ export const submitButton = (submitBtn: HTMLInputElement, btnContainer: HTMLDivE
     submitBtn.addEventListener('click', (event) => {
         event.preventDefault();
 
-        const attendance = new Attendance({ item: '#js-attendance-item', name: 'attendance'});
-        const lastNameKanji = new LastNameKanji({ item: '#js-name-kanji-item', name: 'lastNameKanji' });
-        const firstNameKanji = new FirstNameKanji({ item: '#js-name-kanji-item', name: 'firstNameKanji'});
-        const lastNameKana = new LastNameKana({ item: '#js-name-kana-item', name: 'lastNameKana'});
-        const firstNameKana = new FirstNameKana({ item: '#js-name-kana-item', name: 'firstNameKana' });
+        const attendance = new Attendance({
+            item: '#js-attendance-item',
+            name: 'attendance'
+        });
+        const lastNameKanji = new LastNameKanji({
+            item: '#js-name-kanji-item',
+            name: 'lastNameKanji'
+        });
+        const firstNameKanji = new FirstNameKanji({
+            item: '#js-name-kanji-item',
+            name: 'firstNameKanji'
+        });
+        const lastNameKana = new LastNameKana({
+            item: '#js-name-kana-item',
+            name: 'lastNameKana'
+        });
+        const firstNameKana = new FirstNameKana({
+            item: '#js-name-kana-item',
+            name: 'firstNameKana'
+        });
         const age = new Age({ item: '#js-age-item', name: 'age' });
-        const relationship = new Relationship({ item: '#js-relationship-item', name: 'relationship' });
-        const phoneNumber = new PhoneNumber({ item: '#js-phone-number-item', name: 'phoneNumber' });
+        const relationship = new Relationship({
+            item: '#js-relationship-item',
+            name: 'relationship'
+        });
+        const phoneNumber = new PhoneNumber({
+            item: '#js-phone-number-item',
+            name: 'phoneNumber'
+        });
         const email = new Email({ item: '#js-email-item', name: 'email' });
-        const postCode = new PostCode({ item: '#js-postcode-item', name: 'postCode' });
+        const postCode = new PostCode({
+            item: '#js-postcode-item',
+            name: 'postCode'
+        });
         const region = new Region({ item: '#js-region-item', name: 'region' });
-        const locality = new Locality({ item: '#js-locality-item', name: 'locality' })
+        const locality = new Locality({
+            item: '#js-locality-item',
+            name: 'locality'
+        });
         const street = new Street({ item: '#js-street-item', name: 'street' });
-        const allergy = new Allergy({ item: '#js-allergy-item', name: 'allergy' });
-        const pregnancy = new Pregnancy({ item: '#js-pregnancy-item', name: 'pregnancy' });
-        
+        const allergy = new Allergy({
+            item: '#js-allergy-item',
+            name: 'allergy'
+        });
+        const pregnancy = new Pregnancy({
+            item: '#js-pregnancy-item',
+            name: 'pregnancy'
+        });
+
         let jointParticipantList: JointParticipant[] | null = getJointParticipant();
 
         if (jointParticipantList) {
@@ -174,7 +223,7 @@ export const submitButton = (submitBtn: HTMLInputElement, btnContainer: HTMLDivE
         } else {
             jointParticipantList = null;
         }
-        
+
         // バリデーション
         const inputList = [
             attendance,
@@ -191,12 +240,12 @@ export const submitButton = (submitBtn: HTMLInputElement, btnContainer: HTMLDivE
             locality,
             street,
             allergy,
-            pregnancy,
-        ]
-        
+            pregnancy
+        ];
+
         if (!isInputAllOk(inputList)) return;
-        
-        const input: InputData  = {
+
+        const input: InputData = {
             attendance: attendance.value,
             lastNameKanji: lastNameKanji.value,
             firstNameKanji: firstNameKanji.value,
@@ -212,11 +261,10 @@ export const submitButton = (submitBtn: HTMLInputElement, btnContainer: HTMLDivE
             street: street.value,
             allergy: allergy.value,
             pregnancy: pregnancy.value,
-            jointParticipant: jointParticipantList,
-        }
+            jointParticipant: jointParticipantList
+        };
 
         btnContainer.classList.add(SUBMIT_SENDING);
         send(input, btnContainer);
-    })
-}
-
+    });
+};

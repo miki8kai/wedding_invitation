@@ -1,7 +1,7 @@
-import { InputItem, InputItemQuery } from "../InputItem";
-import { errorMessage, removeErrorMessage } from "../errorMessage";
-import { addError, addOk } from "../ruls/pairIsOkRule";
-import { requiredInputRule } from "../ruls/requiredInputRule";
+import { InputItem, InputItemQuery } from '../InputItem';
+import { errorMessage, removeErrorMessage } from '../errorMessage';
+import { addError, addOk } from '../ruls/pairIsOkRule';
+import { requiredInputRule } from '../ruls/requiredInputRule';
 
 export class LastNameKanji implements InputItem {
     ERROR_MESSAGE = '性と名を入力してください';
@@ -19,7 +19,7 @@ export class LastNameKanji implements InputItem {
         if (!this.liItem) throw new Error('フォーム内リストのアイテム要素を取得できません');
         if (!this.elem) throw new Error('フォームinput要素を取得できません');
 
-        this.value = this.elem.value
+        this.value = this.elem.value;
     }
 
     public completeWith(): boolean {

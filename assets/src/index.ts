@@ -1,17 +1,17 @@
 import '@fortawesome/fontawesome-free/js/fontawesome';
 import '@fortawesome/fontawesome-free/js/solid';
 import '@fortawesome/fontawesome-free/js/regular';
-import { countdownTimer, setWeddingDay } from "./countdownTimer";
-import { eventsCardTitleEnglish, eventsCardTitleJapanese } from "./eventsCard";
-import { headerPointBtn } from "./headerPointBtn";
-import { messageBottomImage, messageInnerImage, messageTopImage } from "./messageImage";
-import { profileCardBride, profileCardBroom } from "./profileCard";
-import { heroSwiper } from "./swiper";
-import { sideBackButton } from "./sideBackButton";
-import { drawerList } from "./drawerList";
-import { inputFormService } from "./form/InputFormService";
-import { loadVideo } from "./loadVideo";
-import { resultCloseButton } from "./resultCloseButton";
+import { countdownTimer, setWeddingDay } from './countdownTimer';
+import { eventsCardTitleEnglish, eventsCardTitleJapanese } from './eventsCard';
+import { headerPointBtn } from './headerPointBtn';
+import { messageBottomImage, messageInnerImage, messageTopImage } from './messageImage';
+import { profileCardBride, profileCardBroom } from './profileCard';
+import { heroSwiper } from './swiper';
+import { sideBackButton } from './sideBackButton';
+import { drawerList } from './drawerList';
+import { inputFormService } from './form/InputFormService';
+import { loadVideo } from './loadVideo';
+import { resultCloseButton } from './resultCloseButton';
 import { lenis } from './lenis';
 import { placeName } from './placeName';
 import { placeAddress } from './placeAddress';
@@ -22,7 +22,8 @@ export const POINT_BUTTON_TOKEN = 'open';
 export const DRAWER_TOKEN = 'display';
 export const RESULT_DISPLAY = 'display';
 
-export const SERVER_URL = 'aHR0cHMlM0ElMkYlMkZieml3bjB6Y3JqLmV4ZWN1dGUtYXBpLmFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZkZWZhdWx0JTJGd2VkZGluZ0ludml0YXRpb25CYWNrZW5k';
+export const SERVER_URL =
+    'aHR0cHMlM0ElMkYlMkZieml3bjB6Y3JqLmV4ZWN1dGUtYXBpLmFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZkZWZhdWx0JTJGd2VkZGluZ0ludml0YXRpb25CYWNrZW5k';
 // export const SERVER_URL = 'aHR0cCUzQSUyRiUyRjEyNy4wLjAuMSUzQTMwMDAlMkY=';
 
 const main = () => {
@@ -59,7 +60,7 @@ const main = () => {
     countdownTimer(<HTMLUListElement>document.getElementById('js-time-list'));
 
     placeName(<HTMLHeadElement>document.getElementById('js-access-place-name'));
-    placeAddress(<HTMLPreElement>document.getElementById('js-access-place-address'))
+    placeAddress(<HTMLPreElement>document.getElementById('js-access-place-address'));
 
     inputFormService();
 

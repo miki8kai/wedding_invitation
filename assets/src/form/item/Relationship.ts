@@ -1,7 +1,6 @@
-
-import { InputItem, InputItemQuery } from "../InputItem";
-import { errorMessage, removeErrorMessage } from "../errorMessage";
-import { requiredSelectRule } from "../ruls/requiredInputRule";
+import { InputItem, InputItemQuery } from '../InputItem';
+import { errorMessage, removeErrorMessage } from '../errorMessage';
+import { requiredSelectRule } from '../ruls/requiredInputRule';
 
 export class Relationship implements InputItem {
     ERROR_MESSAGE: string = 'いずれかを選択してください';

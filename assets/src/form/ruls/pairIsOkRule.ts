@@ -1,5 +1,3 @@
-
-
 export const pairIsOkRule = (pair: HTMLLIElement): boolean => {
     if (!pair) return false;
     const isOk = pair.dataset.isOk;
@@ -7,14 +5,14 @@ export const pairIsOkRule = (pair: HTMLLIElement): boolean => {
     if (isOk === 'false') return false;
 
     return true;
-}
+};
 
 export const addOk = (pair: HTMLLIElement) => {
-    if (!pair) throw Error("引数が正しくありません");
+    if (!pair) throw Error('引数が正しくありません');
     pair.dataset.isOk = 'true';
-}
+};
 
 export const addError = (pair: HTMLLIElement) => {
-    if (!pair) throw Error("引数が正しくありません");
-    pair.dataset.isOk = 'false'
-}
+    if (!pair) throw Error('引数が正しくありません');
+    pair.dataset.isOk = 'false';
+};

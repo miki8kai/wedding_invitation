@@ -1,8 +1,8 @@
-import { InputItem, InputItemQuery } from "../InputItem";
-import { errorMessage, removeErrorMessage } from "../errorMessage";
-import { maxStringLengthRule } from "../ruls/maxStringLengthRule";
-import { numberRule } from "../ruls/numberRule";
-import { requiredInputRule } from "../ruls/requiredInputRule";
+import { InputItem, InputItemQuery } from '../InputItem';
+import { errorMessage, removeErrorMessage } from '../errorMessage';
+import { maxStringLengthRule } from '../ruls/maxStringLengthRule';
+import { numberRule } from '../ruls/numberRule';
+import { requiredInputRule } from '../ruls/requiredInputRule';
 
 export class Age implements InputItem {
     ERROR_MESSAGE = '年齢を半角数字で入力してください';

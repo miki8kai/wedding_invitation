@@ -1,8 +1,6 @@
-
-
 export const privacyPolicy = (privacyPolicy: HTMLInputElement) => {
     if (!privacyPolicy) return;
-    
+
     privacyPolicy.addEventListener('change', () => {
         const submitBtn = <HTMLInputElement>document.getElementById('js-submit');
         if (!submitBtn) return;
@@ -13,4 +11,4 @@ export const privacyPolicy = (privacyPolicy: HTMLInputElement) => {
             submitBtn.disabled = true;
         }
     });
-}
+};

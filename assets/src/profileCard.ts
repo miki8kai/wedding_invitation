@@ -1,5 +1,5 @@
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 export const profileCardBroom = (card: HTMLDivElement) => {
     if (card == null) return;
@@ -7,7 +7,7 @@ export const profileCardBroom = (card: HTMLDivElement) => {
     gsap.set(card, { opacity: 0, y: 30 });
     gsap.to(card, {
         opacity: 1,
-        duration: .2,
+        duration: 0.2,
         y: 0,
         scrollTrigger: {
             // markers: true,
@@ -17,7 +17,7 @@ export const profileCardBroom = (card: HTMLDivElement) => {
             toggleActions: 'play none none reverse'
         }
     });
-}
+};
 
 export const profileCardBride = (card: HTMLDivElement) => {
     if (card == null) return;
@@ -25,7 +25,7 @@ export const profileCardBride = (card: HTMLDivElement) => {
     gsap.set(card, { opacity: 0, y: 30 });
     gsap.to(card, {
         opacity: 1,
-        duration: .2,
+        duration: 0.2,
         y: 0,
         scrollTrigger: {
             // markers: true,
@@ -35,4 +35,4 @@ export const profileCardBride = (card: HTMLDivElement) => {
             toggleActions: 'play none none reverse'
         }
     });
-}
+};

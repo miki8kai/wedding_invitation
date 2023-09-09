@@ -1,4 +1,3 @@
-
 export const requiredInputRule = (elem: HTMLInputElement): boolean => {
     if (!elem) return false;
     if (elem == null) return false;
@@ -7,7 +6,7 @@ export const requiredInputRule = (elem: HTMLInputElement): boolean => {
     if (elem.value.length <= 0) return false;
 
     return true;
-}
+};
 
 export const requiredSelectRule = (elem: HTMLSelectElement): boolean => {
     if (!elem) return false;
@@ -18,4 +17,4 @@ export const requiredSelectRule = (elem: HTMLSelectElement): boolean => {
     if (elem.options[elem.selectedIndex].value == '') return false;
 
     return true;
-}
+};

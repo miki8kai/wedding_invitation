@@ -1,7 +1,6 @@
-import { InputItem, InputItemQuery } from "../InputItem";
-import { errorMessage, removeErrorMessage } from "../errorMessage";
-import { requiredSelectRule } from "../ruls/requiredInputRule";
-
+import { InputItem, InputItemQuery } from '../InputItem';
+import { errorMessage, removeErrorMessage } from '../errorMessage';
+import { requiredSelectRule } from '../ruls/requiredInputRule';
 
 export class Region implements InputItem {
     ERROR_MESSAGE: string = '都道府県を選択してください';

@@ -1,6 +1,6 @@
-import { InputItem, InputItemQuery } from "../InputItem";
-import { errorMessage, removeErrorMessage } from "../errorMessage";
-import { requiredInputRule } from "../ruls/requiredInputRule";
+import { InputItem, InputItemQuery } from '../InputItem';
+import { errorMessage, removeErrorMessage } from '../errorMessage';
+import { requiredInputRule } from '../ruls/requiredInputRule';
 
 export class Attendance implements InputItem {
     ERROR_MESSAGE: string = '出欠を選択してください';
@@ -14,8 +14,8 @@ export class Attendance implements InputItem {
         if (!query.name) throw new Error('引数が不正です');
 
         this.liItem = <HTMLLIElement>document.querySelector(query.item);
-        this.elem = <HTMLInputElement>this.liItem.querySelector(`input[name=${query.name}]:checked`);        
-        
+        this.elem = <HTMLInputElement>this.liItem.querySelector(`input[name=${query.name}]:checked`);
+
         if (!this.liItem) throw new Error('フォーム内リストのアイテム要素を取得できません');
         if (!this.elem) throw new Error('フォームinput要素を取得できません');
 

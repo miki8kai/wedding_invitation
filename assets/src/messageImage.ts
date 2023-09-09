@@ -1,9 +1,9 @@
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 export const messageTopImage = (imgWrap: HTMLSpanElement) => {
     if (!imgWrap) return null;
-    gsap.set(imgWrap, { y: 40 })
+    gsap.set(imgWrap, { y: 40 });
     gsap.registerPlugin(ScrollTrigger);
     gsap.to(imgWrap, {
         y: -20,
@@ -12,10 +12,10 @@ export const messageTopImage = (imgWrap: HTMLSpanElement) => {
             trigger: imgWrap,
             start: 'top bottom',
             end: 'bottom top',
-            scrub: .3,
+            scrub: 0.3
         }
     });
-}
+};
 
 export const messageInnerImage = (imgWrap: HTMLSpanElement) => {
     if (!imgWrap) return null;
@@ -28,14 +28,14 @@ export const messageInnerImage = (imgWrap: HTMLSpanElement) => {
             trigger: imgWrap,
             start: 'top bottom',
             end: 'bottom top',
-            scrub: 3,
+            scrub: 3
         }
     });
-}
+};
 
 export const messageBottomImage = (imgWrap: HTMLSpanElement) => {
     if (!imgWrap) return null;
-    gsap.set(imgWrap, { y: 120 })
+    gsap.set(imgWrap, { y: 120 });
     gsap.registerPlugin(ScrollTrigger);
     gsap.to(imgWrap, {
         y: -60,
@@ -44,7 +44,7 @@ export const messageBottomImage = (imgWrap: HTMLSpanElement) => {
             trigger: imgWrap,
             start: 'top bottom',
             end: 'bottom top',
-            scrub: .7,
+            scrub: 0.7
         }
     });
-}
+};

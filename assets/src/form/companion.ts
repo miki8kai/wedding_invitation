@@ -1,4 +1,3 @@
-
 const getFragment = (fragmentCount: number) => {
     return `
     <div class="fragment" id="fragment-${fragmentCount}">
@@ -36,38 +35,41 @@ const getFragment = (fragmentCount: number) => {
             </div>
         </li>
     </div>
-    `
-}
-
+    `;
+};
 
 export const companion = (btn: HTMLButtonElement, fragmentWrap: HTMLDivElement) => {
     if (!btn) return;
     if (!fragmentWrap) return;
-    btn.addEventListener('click', (event) => {
-        event.preventDefault();
-        const fragmentList = fragmentWrap.getElementsByClassName('fragment');
-        const fragmentCount = fragmentList.length + 1;
+    btn.addEventListener(
+        'click',
+        (event) => {
+            event.preventDefault();
+            const fragmentList = fragmentWrap.getElementsByClassName('fragment');
+            const fragmentCount = fragmentList.length + 1;
 
-        for (let count = 1; count <= fragmentCount; count++) {
-            const targetFragment = <HTMLDivElement>fragmentWrap.querySelector(`#fragment-${count}`);
-            if (!targetFragment) {
-                const fragment = getFragment(count);
-                // 最後の要素
-                if (count == fragmentCount) {
-                    fragmentWrap.insertAdjacentHTML('beforeend', fragment);
-                } else {
-                    // 中間の要素は一個前に追加
-                    const beforeFragment  = <HTMLDivElement>fragmentWrap.querySelector(`#fragment-${count + 1}`);
-                    beforeFragment.insertAdjacentHTML('beforebegin', fragment);
+            for (let count = 1; count <= fragmentCount; count++) {
+                const targetFragment = <HTMLDivElement>fragmentWrap.querySelector(`#fragment-${count}`);
+                if (!targetFragment) {
+                    const fragment = getFragment(count);
+                    // 最後の要素
+                    if (count == fragmentCount) {
+                        fragmentWrap.insertAdjacentHTML('beforeend', fragment);
+                    } else {
+                        // 中間の要素は一個前に追加
+                        const beforeFragment = <HTMLDivElement>fragmentWrap.querySelector(`#fragment-${count + 1}`);
+                        beforeFragment.insertAdjacentHTML('beforebegin', fragment);
+                    }
+
+                    const createdFragment = <HTMLDivElement>document.getElementById(`fragment-${count}`);
+                    const deleteBtn = <HTMLButtonElement>createdFragment.querySelector(`#fragment-delete-${count}`);
+                    companionDelete(deleteBtn, createdFragment);
                 }
-
-                const createdFragment = <HTMLDivElement>document.getElementById(`fragment-${count}`);
-                const deleteBtn = <HTMLButtonElement>createdFragment.querySelector(`#fragment-delete-${count}`);
-                companionDelete(deleteBtn, createdFragment);
             }
-        }
-    }, false);
-}
+        },
+        false
+    );
+};
 
 export const companionDelete = (btn: HTMLButtonElement, fragment: HTMLDivElement) => {
     if (!btn) return;
@@ -75,4 +77,4 @@ export const companionDelete = (btn: HTMLButtonElement, fragment: HTMLDivElement
         event.preventDefault();
         fragment.remove();
     });
-}
+};

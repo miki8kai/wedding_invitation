@@ -1,6 +1,6 @@
-import { InputItem, InputItemQuery } from "../InputItem";
-import { errorMessage, removeErrorMessage } from "../errorMessage";
-import { requiredSelectRule } from "../ruls/requiredInputRule";
+import { InputItem, InputItemQuery } from '../InputItem';
+import { errorMessage, removeErrorMessage } from '../errorMessage';
+import { requiredSelectRule } from '../ruls/requiredInputRule';
 
 export class Pregnancy implements InputItem {
     ERROR_MESSAGE = '妊娠を選択してください';
@@ -21,7 +21,7 @@ export class Pregnancy implements InputItem {
 
         const selectedIdx = this.elem.selectedIndex;
         const selectedText = this.elem.options[selectedIdx].value;
-        this.value = JSON.parse(selectedText.toLowerCase())
+        this.value = JSON.parse(selectedText.toLowerCase());
     }
 
     public completeWith(): boolean {

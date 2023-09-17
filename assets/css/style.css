@@ -525,7 +525,7 @@ header .drawer.display .img-wrapper img {
 }
 
 /**
- * Swiper 10.0.4
+ * Swiper 10.2.0
  * Most modern mobile touch slider and framework with hardware accelerated transitions
  * https://swiperjs.com
  *
@@ -533,7 +533,7 @@ header .drawer.display .img-wrapper img {
  *
  * Released under the MIT License
  *
- * Released on: July 8, 2023
+ * Released on: August 17, 2023
  */
 @font-face {
   font-family: "swiper-icons";
@@ -969,16 +969,16 @@ header .drawer.display .img-wrapper img {
   height: 100vh;
 }
 .profile .profile-wrap.broom {
-  background-image: url("../img/hero.jpg");
+  background-image: url("../img/groom.jpg");
   background-attachment: local;
   background-size: cover;
-  background-position: cover;
+  background-position: center center;
 }
 .profile .profile-wrap.bride {
-  background-image: url("../img/hero2.jpg");
+  background-image: url("../img/bride.jpg");
   background-attachment: local;
   background-size: cover;
-  background-position: cover;
+  background-position: center center;
 }
 .profile .profile-wrap .card {
   position: sticky;
@@ -1055,7 +1055,7 @@ header .drawer.display .img-wrapper img {
   z-index: -1;
   width: 100vw;
   height: 100vh;
-  background: url("../img/sea2.jpg") no-repeat;
+  background: url("../img/countdown.jpg") no-repeat;
   background-size: cover;
 }
 @media screen and (min-width: 768px) {
@@ -1414,8 +1414,9 @@ header .drawer.display .img-wrapper img {
   z-index: -1;
   width: 100vw;
   height: 120vh;
-  background: url("../img/sea1.jpg") no-repeat;
+  background: url("../img/rsvp.jpg") no-repeat;
   background-size: cover;
+  background-position: center center;
 }
 @media screen and (min-width: 768px) {
   .rsvp {

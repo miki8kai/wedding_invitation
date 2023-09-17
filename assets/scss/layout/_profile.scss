@@ -8,16 +8,16 @@
         width: 100%;
         height: 100vh;
         &.broom {
-            background-image: url("../img/hero.jpg");
+            background-image: url("../img/groom.jpg");
             background-attachment: local;
             background-size: cover;
-            background-position: cover;
+            background-position: center center;
         }
         &.bride {
-            background-image: url("../img/hero2.jpg");
+            background-image: url("../img/bride.jpg");
             background-attachment: local;
             background-size: cover;
-            background-position: cover;
+            background-position: center center;
         }
         .card {
             position: sticky;

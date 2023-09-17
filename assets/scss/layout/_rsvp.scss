@@ -16,9 +16,10 @@
         z-index: -1;
         width: 100vw;
         height: 120vh;
-        background: url("../img/sea1.jpg") no-repeat;
+        background: url("../img/rsvp.jpg") no-repeat;
         -webkit-background-size: cover;
         background-size: cover;
+        background-position: center center;
     }
     @include m.mediaQuery(tab) {
         padding-top: 100px;

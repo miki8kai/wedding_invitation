@@ -19,7 +19,7 @@
         background: url("../img/rsvp.jpg") no-repeat;
         -webkit-background-size: cover;
         background-size: cover;
-        background-position: top center;
+        background-position: center top;
     }
     @include m.mediaQuery(tab) {
         padding-top: 100px;

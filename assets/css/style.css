@@ -972,13 +972,13 @@ header .drawer.display .img-wrapper img {
   background-image: url("../img/groom.jpg");
   background-attachment: local;
   background-size: cover;
-  background-position: center center;
+  background-position: top center;
 }
 .profile .profile-wrap.bride {
   background-image: url("../img/bride.jpg");
   background-attachment: local;
   background-size: cover;
-  background-position: center center;
+  background-position: top center;
 }
 .profile .profile-wrap .card {
   position: sticky;
@@ -1416,7 +1416,7 @@ header .drawer.display .img-wrapper img {
   height: 120vh;
   background: url("../img/rsvp.jpg") no-repeat;
   background-size: cover;
-  background-position: center center;
+  background-position: top center;
 }
 @media screen and (min-width: 768px) {
   .rsvp {

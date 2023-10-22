@@ -62,14 +62,14 @@
                 .info {
                     .info-list {
                         list-style: none;
-                        .date, .time, .reception {
-                            font-size: 1.4rem;
+                        .date, .time, .reception, .place {
+                            font-size: 1rem;
                             letter-spacing: 2px;
                         }
                         .date {
                             padding-top: 30px;
                         }
-                        .time, .reception {
+                        .time, .reception, .place {
                             @include m.mediaQuery(tab) {
                                 padding-top: 8px;
                             }

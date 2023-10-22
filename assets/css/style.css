@@ -1209,15 +1209,15 @@ header .drawer.display .img-wrapper img {
 .events .events-wrap .card .card-inner .info .info-list {
   list-style: none;
 }
-.events .events-wrap .card .card-inner .info .info-list .date, .events .events-wrap .card .card-inner .info .info-list .time, .events .events-wrap .card .card-inner .info .info-list .reception {
-  font-size: 1.4rem;
+.events .events-wrap .card .card-inner .info .info-list .date, .events .events-wrap .card .card-inner .info .info-list .time, .events .events-wrap .card .card-inner .info .info-list .reception, .events .events-wrap .card .card-inner .info .info-list .place {
+  font-size: 1rem;
   letter-spacing: 2px;
 }
 .events .events-wrap .card .card-inner .info .info-list .date {
   padding-top: 30px;
 }
 @media screen and (min-width: 768px) {
-  .events .events-wrap .card .card-inner .info .info-list .time, .events .events-wrap .card .card-inner .info .info-list .reception {
+  .events .events-wrap .card .card-inner .info .info-list .time, .events .events-wrap .card .card-inner .info .info-list .reception, .events .events-wrap .card .card-inner .info .info-list .place {
     padding-top: 8px;
   }
 }

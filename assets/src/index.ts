@@ -22,9 +22,8 @@ export const POINT_BUTTON_TOKEN = 'open';
 export const DRAWER_TOKEN = 'display';
 export const RESULT_DISPLAY = 'display';
 
-export const SERVER_URL =
-    'aHR0cHMlM0ElMkYlMkZieml3bjB6Y3JqLmV4ZWN1dGUtYXBpLmFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZkZWZhdWx0JTJGd2VkZGluZ0ludml0YXRpb25CYWNrZW5k';
-// export const SERVER_URL = 'aHR0cCUzQSUyRiUyRjEyNy4wLjAuMSUzQTMwMDAlMkY=';
+// export const SERVER_URL を削除
+// export const SERVER_URL = 'deleted server url'
 
 const main = () => {
     lenis();
